@@ -19,6 +19,40 @@ typedef struct
   int Cod_Cli;
   } Recebimento;
 
+int cadastrarCliente(Cliente *c)
+  {
+  printf("Cadastro de cliente\n");
+  printf("código do Cliente: ");
+  scanf("%d", & c->.Cod_Cli);
+  getchar(); //limpa o \n (buffer)do scanf para nao bugar os fgets;
+  printf("\nNome: ");
+  fgets(c->Nome, 50, stdin);
+  printf("\nEndereco: ");
+  fgets(c->Endereco, 400, stdin);
+  printf("\nFone: ");
+  fgets(c->Fone, 20, stdin);
+
+  return 0;
+  }
+ 
+int cadastrarRecebimento(Recebimento *r)
+  {
+  printf("Cadastro de recebimento\n");
+  printf("Número de Documento: ");
+  scanf("%d", & r->Num_doc);
+  printf("\nValor do Documento: ");
+  scanf("%f", & r->Valor_doc);
+  getchar();
+  printf("\nData de Emissão: ");
+  fgets(r->Data_Emissao, 15, stdin);
+  printf("\nData de Vencimento: ");
+  fgets(r->Data_Vencimento, 15, stdin);
+  printf("\ncódigo do Cliente: ");
+  scanf("%d", & r->Cod_Cli);
+  getchar();
+  
+  return 0;
+  }
 
 int main()
 {
@@ -26,44 +60,8 @@ int main()
   Cliente cliente;
   Recebimento recebimento;
 
-
-
+  cadastrarCliente(&cliente);
+  cadastrarRecebimento(&recebimento);
   
     return 0;
 }
-
-
-int cadastrarPessoa()
-  {
-  scanf("%*c"); // limpar o enter do teclado(buffer), caso a pessoa digite o numero e um enter;
-  printf("Cadastro de cliente\n");
-  printf("código do Cliente: ");
-  scanf("%d", & Cliente.Cod_Cli);
-  getchar(); //limpa o \n (buffer)do scanf para nao bugar os fgets;
-  printf("\nNome: ");
-  fgets(Cliente.Nome, 50, stdin);
-  printf("\nEndereco: ");
-  fgets(Cliente.Endereco, 400, stdin);
-  printf("\nFone: ");
-  fgets(Cliente.Fone, 20, stdin);
-
-  return 0;
-  }
- 
-int cadastrarRecebimento()
-  {
-  scanf("%*c");
-  printf("Cadastro de recebimento\n");
-  printf("Número de Documento: ");
-  scanf("%d", & Recebimento.Num_doc);
-  printf("\nValor do Documento: ");
-  scanf("%f", & Recebimento.Valor_doc);
-  printf("\nData de Emissão: ");
-  fgets(Recebimento.Data_Emissao, 15, stdin);
-  printf("\nData de Vencimento: ");
-  fgets(Recebimento.Data_Vencimento, 15, stdin);
-  printf("\ncódigo do Cliente: ");
-  scanf("%d", & Recebimento.Cod_Cli);
-  
-  return 0;
-  }
