@@ -10,14 +10,7 @@ int main()
  
   printf("Cadastro de cliente\n");
   
-  printf("código do Cliente: ");
-  scanf("%d\n", & Cliente.Cod_Cli);
-  printf("Nome: ");
-  scanf("%[^\n]", & Cliente.Nome);
-  printf("Endereco: ");
-  scanf("%[^\n]", & Cliente.Endereco);
-  printf("Fone: ");
-  scanf("%[^\n]", & Cliente.Fone);
+
  
   printf("\n");
  
@@ -44,6 +37,18 @@ typedef struct
   char Endereco[400];
   char Fone[20];
   } Cliente;
+
+int cadastrarPessoa()
+  {
+   printf("código do Cliente: ");
+  scanf("%d\n", & Cliente.Cod_Cli);
+  printf("Nome: ");
+  fgets(Cliente.Nome, 50, stdin);
+  printf("Endereco: ");
+  fgets(Cliente.Endereco, 400, stdin):
+  printf("Fone: ");
+  fgets(Cliente.Fone, 20, stdin);
+  }
  
 typedef struct
   {
