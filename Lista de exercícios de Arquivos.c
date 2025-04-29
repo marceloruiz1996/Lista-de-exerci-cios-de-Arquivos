@@ -1,14 +1,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-int main()
-{
-//FILE *fclientes, *frecebimentos;
-  Cliente cliente;
-  Recebimento recebimento;
-
-    return 0;
-}
 
 typedef struct
   {
@@ -18,19 +10,6 @@ typedef struct
   char Fone[20];
   } Cliente;
 
-int cadastrarPessoa()
-  {
-  printf("Cadastro de cliente\n");
-  printf("código do Cliente: ");
-  scanf("%d\n", & Cliente.Cod_Cli);
-  printf("Nome: ");
-  fgets(Cliente.Nome, 50, stdin);
-  printf("Endereco: ");
-  fgets(Cliente.Endereco, 400, stdin):
-  printf("Fone: ");
-  fgets(Cliente.Fone, 20, stdin);
-  }
- 
 typedef struct
   {
   int Num_doc;
@@ -40,17 +19,51 @@ typedef struct
   int Cod_Cli;
   } Recebimento;
 
+
+int main()
+{
+//FILE *fclientes, *frecebimentos;
+  Cliente cliente;
+  Recebimento recebimento;
+
+
+
+  
+    return 0;
+}
+
+
+int cadastrarPessoa()
+  {
+  scanf("%*c"); // limpar o enter do teclado(buffer), caso a pessoa digite o numero e um enter;
+  printf("Cadastro de cliente\n");
+  printf("código do Cliente: ");
+  scanf("%d", & Cliente.Cod_Cli);
+  getchar(); //limpa o \n (buffer)do scanf para nao bugar os fgets;
+  printf("\nNome: ");
+  fgets(Cliente.Nome, 50, stdin);
+  printf("\nEndereco: ");
+  fgets(Cliente.Endereco, 400, stdin);
+  printf("\nFone: ");
+  fgets(Cliente.Fone, 20, stdin);
+
+  return 0;
+  }
+ 
 int cadastrarRecebimento()
   {
+  scanf("%*c");
   printf("Cadastro de recebimento\n");
-  printf("Número de Documento: ")
-  scanf("%d\n", & Recebimento.Num_doc);
-  printf("Valor do Documento: ")
-  scanf("%f\n", & Recebimento.Valor_doc);
-  printf("Data de Emissão: ");
+  printf("Número de Documento: ");
+  scanf("%d", & Recebimento.Num_doc);
+  printf("\nValor do Documento: ");
+  scanf("%f", & Recebimento.Valor_doc);
+  printf("\nData de Emissão: ");
   fgets(Recebimento.Data_Emissao, 15, stdin);
-  printf("Data de Vencimento: ");
+  printf("\nData de Vencimento: ");
   fgets(Recebimento.Data_Vencimento, 15, stdin);
-  printf("código do Cliente: ");
-  scanf("%d\n", & Recebimento.Cod_Cli);
+  printf("\ncódigo do Cliente: ");
+  scanf("%d", & Recebimento.Cod_Cli);
+  
+  return 0;
   }
