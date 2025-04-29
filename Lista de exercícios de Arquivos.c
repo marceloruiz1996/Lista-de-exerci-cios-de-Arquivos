@@ -34,6 +34,7 @@ int cadastrarCliente(Cliente *c)
   else
     {
     printf("erro, quantidade máxima de cadastro efetuada");
+    return 1;
     }
   }
 
@@ -42,7 +43,7 @@ void listarClientes()
   int i;
   for(i=0, i < quant, i++)
     {
-    printf("cliente %d\n", i+1);
+    printf("Cliente %d\n", i+1);
     printf("código: %d\n", clientes[i].Cod_Cli);
     printf("nome: %c\n", clientes[i].Nome);
     printf("endereço: %c\n", clientes[i].Endereco);
@@ -74,33 +75,56 @@ typedef struct
   char Data_Vencimento[15];
   int Cod_Cli;
   } Recebimento;
+recebimentos[TAM];
+
+
 
 int cadastrarRecebimento(Recebimento *r)
   {
-  printf("Cadastro de recebimento\n");
-  printf("Número de Documento: ");
-  scanf("%d", & r->Num_doc);
-  printf("\nValor do Documento: ");
-  scanf("%f", & r->Valor_doc);
-  getchar();
-  printf("\nData de Emissão: ");
-  fgets(r->Data_Emissao, 15, stdin);
-  printf("\nData de Vencimento: ");
-  fgets(r->Data_Vencimento, 15, stdin);
-  printf("\ncódigo do Cliente: ");
-  scanf("%d", & r->Cod_Cli);
-  getchar();
-  
-  return 0;
+  if(quant<TAM)
+    {
+    printf("Cadastro de recebimento\n");
+    printf("Número de Documento: ");
+    scanf("%d", & r->Num_doc);
+    printf("\nValor do Documento: ");
+    scanf("%f", & r->Valor_doc);
+    getchar();
+    printf("\nData de Emissão: ");
+    fgets(r->Data_Emissao, 15, stdin);
+    printf("\nData de Vencimento: ");
+    fgets(r->Data_Vencimento, 15, stdin);
+    printf("\ncódigo do Cliente: ");
+    scanf("%d", & r->Cod_Cli);
+    getchar();
+    return 0;
+    }
+  else
+    {
+    printf("erro, quantidade máxima de cadastro efetuada");
+    return 1;
+    }
   }
-int 
+
+void listarRecebimento()
+  {
+  int i;
+  for(i=0, i < quant, i++)
+    {
+    printf("Recebimento: %d\n", i+1);
+    printf("Número de Documento: %d\n", recebimentos[i].Num_doc);
+    printf("Valor do Documento: %f\n", recebimentos[i].Valor_doc);
+    printf("Data de Emissão: %c\n", recebimentos[i].Data_Emissao);
+    printf("Data de Vencimento: %c\n", recebimentos[i].Data_Vencimento);
+    printf("Código do Cliente: %d\n", recebimento[i].Cod_Cli);
+    }
+
 int main()
   {
   int op;
   
   do
     {
-    printf("\n1 - cadastrar cliente \n2 - imprimir cliente\n0 - sair");
+    printf("\n1 - Cadastrar Cliente \n2 - Listar Cliente \n3 - Cadastrar Recebimento \n4 - Listar Recebimento \n0 - Sair");
     scanf("%d", & op);
     
     switch(op)
@@ -115,6 +139,14 @@ int main()
 
       case 2:
         listarClientes();
+        break;
+
+      case 3:
+        cadastrarRecebimento();
+        break;
+        
+      case 4:
+        listarRecebimento()
         break;
       
       default:
