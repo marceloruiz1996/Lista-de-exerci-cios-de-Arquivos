@@ -54,14 +54,25 @@ int cadastrarRecebimento(Recebimento *r)
   return 0;
   }
 
+void salvarArquivo()
+  {
+  FILE *arq = fopen("cliente.txt", "w");
+  if(arq)
+    { }
+  else
+    {
+    printf("ERRO");
+    }
+  
+  }
+
 int main()
-{
-//FILE *fclientes, *frecebimentos;
+  {
   Cliente cliente;
   Recebimento recebimento;
 
   cadastrarCliente(&cliente);
   cadastrarRecebimento(&recebimento);
   
-    return 0;
-}
+  return 0;
+  }
